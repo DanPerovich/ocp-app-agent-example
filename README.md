@@ -32,7 +32,7 @@ This make sence when 2 processes runs independently and need to comunicate via A
 
 1. We will build newrelic monitoring agent container:
 ```
-cd cidecar-pattern/container
+cd sidecar-pattern/container
 #download newrelic binaries to newrelic folder. Including jars, certificates, configfiles. If you feel bad baking some of this stuff to container (you should be), you can provide them via configMaps.
 docker build -t mangirdas/newrelic-sidecar .
 ```
@@ -42,15 +42,15 @@ In the first example we would use same patterns, but for simplicity we didnt do 
 
 Lets generate secrets:
 ```
-cd cidecar-pattern/template/secrets
+cd sidecar-pattern/template/secrets
 #update nrcofig.env secret with your app details
 ./config-to-secret.sh
 oc create -f newrelic-config.yaml 
 oc create -f newrelic-secret.yaml 
 #This will create secrets and configMaps
 #create and deploy this app from UI or CLI and we will see 2 containers running together.
-oc process -f template.yaml -p APPLICATION_NAME=cidecar | oc create -f -
-oc start-build cidecar
+oc process -f template.yaml -p APPLICATION_NAME=sidecar | oc create -f -
+oc start-build sidecar
 oc rollout latest dc/sidecar
 ```
 
