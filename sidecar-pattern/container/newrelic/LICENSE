@@ -65,8 +65,13 @@ This product includes 'Javassist', which is released under the following license
 
 ----------------------------------------------------------------
 
-This product includes 'LogBack', which is released under the following license(s):
-    Eclipse Public License 1.0 <http://www.eclipse.org/legal/epl-v10.html>
+This product includes 'Log4J', which is released under the following license(s):
+    Apache License 2.0 <http://www.apache.org/licenses/LICENSE-2.0>
+
+----------------------------------------------------------------
+
+This product includes 'OpenTracing', which is released under the following license(s):
+    Apache License 2.0 <http://www.apache.org/licenses/LICENSE-2.0>
 
 ----------------------------------------------------------------
 
@@ -85,7 +90,7 @@ This product includes 'SnakeYAML', which is released under the following license
 
 ----------------------------------------------------------------
 
-All other components of this product are: Copyright (c) 2010-2017 New Relic, Inc. All rights reserved.
+All other components of this product are: Copyright (c) 2010-2019 New Relic, Inc. All rights reserved.
 
 Certain inventions disclosed in this file may be claimed within patents owned or patent applications
 filed by New Relic, Inc. or third parties. Subject to the terms of this notice, New Relic grants you
