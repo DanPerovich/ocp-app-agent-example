@@ -71,25 +71,6 @@ objects:
       type: Rolling
     template:
       metadata:
-        annotations:
-          pod.alpha.kubernetes.io/initialized: "true"
-          pod.alpha.kubernetes.io/init-containers: '[
-              {
-                  "name": "install-newrelic",
-                  "image": "mangirdas/newrelic-init:latest",
-                  "imagePullPolicy": "Always",
-                  "volumeMounts": [
-                      {
-                          "name": "newrelic-volume",
-                          "mountPath": "/newrelic"
-                      },
-                      {   
-                          "name": "newrelic-config",
-                          "mountPath": "/newrelic-config"
-                      }
-                  ]
-              }
-          ]'
         labels:
           app: ${APPLICATION_NAME}
           deploymentconfig: ${APPLICATION_NAME}
@@ -120,6 +101,15 @@ objects:
           volumeMounts:
           - mountPath: /mnt/newrelic
             name: newrelic-volume
+        initContainers:
+        - name: install-newrelic
+          image: mangirdas/newrelic-init:latest
+          imagePullPocligy: Always
+          volumeMounts:
+          - mountPath: /newrelic
+            name: newrelic-volume
+          - mountPath: /newrelic-config
+            name: newrelic-config
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}
